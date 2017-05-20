@@ -1,5 +1,6 @@
 ;;;; package.lisp
 
 (defpackage #:fcoords
-  (:use #:cl))
-
+  (:use #:cl)
+  (:export
+   :back-transformation))
