@@ -9,13 +9,15 @@
 
 (defun back-tranformation-sequence (x y n f &optional (g #'identity))
   "Runs 'n' times the back f-g-transformation over an initial point"
-  (let ((result ())
+  (let ((x-points ())
+        (y-points ())
         (x0 x)
         (y0 y))
     (dotimes (i n (1+ i))
-      (push `(,x0 ,y0) result)
+      (push x0 x-points)
+      (push y0 y-points)
       (multiple-value-bind (x1 y1)
           (back-transformation x0 y0 f g)
         (setf x0 x1
               y0 y1)))
-    result))
+    (list x-points y-points)))
