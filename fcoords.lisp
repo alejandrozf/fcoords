@@ -13,7 +13,7 @@
         (x0 x)
         (y0 y))
     (dotimes (i n (1+ i))
-      (push (cons x0 y0) result)
+      (push `(,x0 ,y0) result)
       (multiple-value-bind (x1 y1)
           (back-transformation x0 y0 f g)
         (setf x0 x1
