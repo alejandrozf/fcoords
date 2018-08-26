@@ -3,4 +3,4 @@
 (defpackage #:fcoords
   (:use #:cl)
   (:export
-   :back-transformation))
+   :back-transformation :back-tranformation-sequence))
