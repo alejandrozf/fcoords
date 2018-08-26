@@ -1,1 +1,1 @@
-This is the stub README.txt for the "fcoords" project.
+Some utilities to organize and visualize my coordinate transformation
