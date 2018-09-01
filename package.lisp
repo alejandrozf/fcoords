@@ -3,4 +3,5 @@
 (defpackage #:fcoords
   (:use #:cl)
   (:export
-   :back-transformation :back-tranformation-sequence :log-axis :sqrt-axis))
+   :back-transformation :back-tranformation-sequence :axis-log :axis-sqrt
+   :back-transformation-plot))

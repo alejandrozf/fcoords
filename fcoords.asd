@@ -5,5 +5,6 @@
   :author "Alejandro Zamora <ale2014.zamora@gmail.com>"
   :license "MIT"
   :serial t
+  :depends-on ("vgplot")
   :components ((:file "package")
                (:file "fcoords")))
