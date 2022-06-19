@@ -7,6 +7,4 @@
    :back-transformation
    :back-transformation-sequence
    ;; some axis functions
-   :axis-log :axis-sqrt
-
-   :back-transformation-plot))
+   :axis-log :axis-sqrt))
