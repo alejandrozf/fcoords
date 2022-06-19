@@ -7,7 +7,7 @@
   (values (- (funcall g x) (funcall f y))
           (+ (funcall g y) (funcall f x))))
 
-(defun back-tranformation-sequence (x y n f &optional (g #'identity))
+(defun back-transformation-sequence (x y n f &optional (g #'identity))
   "Runs 'n' times the back f-g-transformation over an initial point"
   (let ((x-points ())
         (y-points ())
@@ -34,5 +34,5 @@
 
 (defun back-transformation-plot (init-x init-y iterations func)
   "Plot back-transformation graphic"
-  (setf data (fcoords:back-tranformation-sequence init-x init-y iterations func))
-  (vgplot:plot (first data) (second data)))
+  (let ((data (fcoords:back-transformation-sequence init-x init-y iterations func)))
+    (vgplot:plot (first data) (second data))))

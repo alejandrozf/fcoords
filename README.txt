@@ -1,1 +1,1 @@
-Some utilities to organize and visualize a coordinate transformation
+Some utilities to organize a coordinate transformation
