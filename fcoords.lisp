@@ -2,12 +2,12 @@
 
 (in-package #:fcoords)
 
-(defun back-transformation (x y f &optional (g #'identity))
+(defun back-transformation (x y f &key (g #'identity) (add #'+) (substract #'-))
   "Converts a single point transformed to normal coordinates"
-  (values (- (funcall g x) (funcall f y))
-          (+ (funcall g y) (funcall f x))))
+  (values (funcall add (funcall g x) (funcall f y))
+          (funcall substract (funcall g y) (funcall f x))))
 
-(defun back-transformation-sequence (x y n f &optional (g #'identity))
+(defun back-transformation-sequence (x y n f &key (g #'identity) (add #'+) (substract #'-))
   "Runs 'n' times the back f-g-transformation over an initial point"
   (let ((x-points ())
         (y-points ())
@@ -17,7 +17,7 @@
       (push x0 x-points)
       (push y0 y-points)
       (multiple-value-bind (x1 y1)
-          (back-transformation x0 y0 f g)
+          (back-transformation x0 y0 f :g g :add add :substract substract)
         (setf x0 x1
               y0 y1)))
     (list x-points y-points)))
