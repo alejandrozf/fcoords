@@ -31,8 +31,3 @@
 (defun axis-log (x)
   "Function log-like modified to be ready for being a transformation axis"
   (if (> x 0) (log (1+ x)) (- (log (1+ (abs x))))))
-
-(defun back-transformation-plot (init-x init-y iterations func)
-  "Plot back-transformation graphic"
-  (let ((data (fcoords:back-transformation-sequence init-x init-y iterations func)))
-    (vgplot:plot (first data) (second data))))
