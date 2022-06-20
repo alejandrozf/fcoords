@@ -22,6 +22,21 @@
               y0 y1)))
     (list x-points y-points)))
 
+(defun back-transformation-sequence-multiple (x y transform-list)
+  "Apply a list of f-g-transformation over an initial point"
+  (let ((x-points ())
+        (y-points ())
+        (x0 x)
+        (y0 y))
+    (dolist (f transform-list)
+      (push x0 x-points)
+      (push y0 y-points)
+      (multiple-value-bind (x1 y1)
+          (funcall f x0 y0)
+        (setf x0 x1
+              y0 y1)))
+    (list x-points y-points)))
+
 (defun axis-sqrt (x)
   "Function sqrt-like modified to be ready for being a transformation axis"
   (if (> x 0)
